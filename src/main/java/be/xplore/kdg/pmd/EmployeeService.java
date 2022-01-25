@@ -5,11 +5,11 @@ import lombok.Value;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeReturnNull {
+public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
 
-    public EmployeeReturnNull(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
@@ -22,15 +22,15 @@ public class EmployeeReturnNull {
 
         return names;
     }
+}
 
-    static class EmployeeRepository {
-        public List<Employee> getEmployees() {
-            return null; // if no employees exist in the repository
-        }
+class EmployeeRepository {
+    public List<Employee> getEmployees() {
+        return null; // if no employees exist in the repository
     }
+}
 
-    @Value
-    static class Employee {
-        String name;
-    }
+@Value
+class Employee {
+    String name;
 }

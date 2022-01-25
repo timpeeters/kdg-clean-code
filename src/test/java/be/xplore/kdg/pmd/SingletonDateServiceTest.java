@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DateServiceTest {
+class SingletonDateServiceTest {
 
-    private final DateService dateService = new DateService();
+    private final SingletonDateService dateService = new SingletonDateService();
 
     @Test
     void formatDate() throws ParseException {

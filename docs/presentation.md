@@ -246,10 +246,10 @@ pom.xml
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
     <configuration>
+        <compilerArgument>-Xlint:all,-processing</compilerArgument>
+        <failOnWarning>true</failOnWarning>
         <showDeprecation>true</showDeprecation>
         <showWarnings>true</showWarnings>
-        <failOnWarning>true</failOnWarning>
-        <compilerArgument>-Xlint:all</compilerArgument>
     </configuration>
 </plugin>
 ```
@@ -306,6 +306,10 @@ https://checkstyle.sourceforge.io/checks.html
 
 ## PMD
 
+* Writer.java
+* EmployeeService.java
+* DateService.java
+
 pom.xml
 ```xml
 <plugin>
@@ -342,12 +346,12 @@ config/pmd.xml
     <rule ref="category/java/errorprone.xml/CloseResource"/>
 </ruleset>
 ```
-
 Examples:
 * category/java/errorprone.xml/CloseResource
-* category/java/errorprone.xml/EmptyCatchBlock
 * category/java/errorprone.xml/ReturnEmptyCollectionRatherThanNull
 * category/java/multithreading.xml/UnsynchronizedStaticFormatter
+
+***
 
 ## CPD
 
@@ -365,6 +369,8 @@ pom.xml
     </executions>
 </plugin>
 ```
+
+***
 
 ## Code Coverage
 
@@ -392,6 +398,8 @@ pom.xml
 </plugin>
 ```
 
+***
+
 ### Codecov
 
 Upload via GitHub Actions:
@@ -399,6 +407,8 @@ Upload via GitHub Actions:
 - name: Upload coverage to Codecov
   uses: codecov/codecov-action@v2
 ```
+
+***
 
 ## Dependencies
 
@@ -411,6 +421,8 @@ Upload via GitHub Actions:
 * Tools to keep dependencies up-to-date
   * Dependabot (GitHub)
   * Renovatebot
+
+***
 
 ## OSS Index Maven Plugin
 
@@ -427,6 +439,7 @@ Command:
 ```shell
 mvn ossindex:audit
 ```
+***
 
 ## Dependabot
 

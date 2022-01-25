@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class WriterLeak {
+public class Writer {
 
     public void writeFile(Path path, String content) {
         try {
