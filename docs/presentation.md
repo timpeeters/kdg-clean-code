@@ -177,8 +177,6 @@ class Customer {
 They should do it well.
 They should do it only.
 
-See: `MethodLength.java`
-
 ***
 
 ### Use Descriptive Names
@@ -192,8 +190,6 @@ See: `MethodLength.java`
 * Followed by two (dyadic)
 * Three arguments (triadic)
 * More than three (polyadic) requires very special justification
-
-See: `FunctionArguments.java`
 
 ***
 
