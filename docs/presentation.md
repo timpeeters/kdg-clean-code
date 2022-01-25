@@ -206,13 +206,181 @@ Bad:
 render(boolean isSuite)
 ```
 
+***
+
 ### Don't Repeat Yourself
+
+***
+
+## Compiler warnings
+
+pom.xml
+```xml
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <showDeprecation>true</showDeprecation>
+        <showWarnings>true</showWarnings>
+        <failOnWarning>true</failOnWarning>
+        <compilerArgument>-Xlint:all</compilerArgument>
+    </configuration>
+</plugin>
+```
+
+Examples:
+* Deprecations
+* RawTypes
+
+***
+
+## Checkstyle
+
+pom.xml
+```xml
+<plugin>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <configuration>
+        <configLocation>config/checkstyle.xml</configLocation>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>check</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+config/checkstyle.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <module name="TreeWalker">
+        <module name="MethodLength">
+            <property name="max" value="10"/>
+        </module>
+    </module>
+</module>
+```
+
+Examples:
+* MethodLength
+* ExecutableStatementCount
+* ParameterNumber
+
+Available Checks:
+https://checkstyle.sourceforge.io/checks.html
+
+## PMD
+
+pom.xml
+```xml
+<plugin>
+    <artifactId>maven-pmd-plugin</artifactId>
+    <configuration>
+        <failOnViolation>true</failOnViolation>
+        <linkXRef>false</linkXRef>
+        <printFailingErrors>true</printFailingErrors>
+        <rulesets>config/pmd.xml</rulesets>
+    </configuration>
+    <executions>
+        <execution>
+            <id>pmd</id>
+            <goals>
+                <goal>check</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+config/pmd.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ruleset
+        name="PMD Ruleset"
+        xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description/>
+
+    <rule ref="category/java/errorprone.xml/CloseResource"/>
+</ruleset>
+```
+
+Examples:
+* category/java/errorprone.xml/CloseResource
+* category/java/errorprone.xml/EmptyCatchBlock
+* category/java/errorprone.xml/ReturnEmptyCollectionRatherThanNull
+* category/java/multithreading.xml/UnsynchronizedStaticFormatter
+
+## CPD
+
+pom.xml
+```xml
+<plugin>
+    <artifactId>maven-pmd-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>pmd</id>
+            <goals>
+                <goal>cpd-check</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+## Code Coverage
+
+### JaCoCo
+
+pom.xml
+```xml
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>default-prepare-agent</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>default-report</id>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+### Codecov
+
+Upload via GitHub Actions:
+```yaml
+- name: Upload coverage to Codecov
+  uses: codecov/codecov-action@v2
+```
 
 ## Dependencies
 
 * Find a balance between
   * Code re-use (don't re-invent the wheel)
   * High coupling due to too many dependencies
-* Use tools to keep dependencies up-to-date
+* Keep dependencies up-to-date
+  * Log4j 2 example
+  * ossindex-maven-plugin
+* Tools to keep dependencies up-to-date
   * Dependabot (GitHub)
   * Renovatebot
