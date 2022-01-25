@@ -12,6 +12,7 @@
 
     <properties>
         <assertj.version>3.22.0</assertj.version>
+        <checkstyle.version>9.2.1</checkstyle.version>
         <junit.version>5.8.2</junit.version>
         <log4j.version>2.14.1</log4j.version>
         <lombok.version>1.18.22</lombok.version>
@@ -83,6 +84,13 @@
                 <plugin>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>3.1.1</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${checkstyle.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>
@@ -93,6 +101,28 @@
                 <plugin>
                     <artifactId>maven-pmd-plugin</artifactId>
                     <version>3.14.0</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.sourceforge.pmd</groupId>
+                            <artifactId>pmd-core</artifactId>
+                            <version>${pmd.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>net.sourceforge.pmd</groupId>
+                            <artifactId>pmd-java</artifactId>
+                            <version>${pmd.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>net.sourceforge.pmd</groupId>
+                            <artifactId>pmd-javascript</artifactId>
+                            <version>${pmd.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>net.sourceforge.pmd</groupId>
+                            <artifactId>pmd-jsp</artifactId>
+                            <version>${pmd.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>
@@ -147,28 +177,6 @@
                     <printFailingErrors>true</printFailingErrors>
                     <rulesets>config/pmd.xml</rulesets>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.sourceforge.pmd</groupId>
-                        <artifactId>pmd-core</artifactId>
-                        <version>${pmd.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.sourceforge.pmd</groupId>
-                        <artifactId>pmd-java</artifactId>
-                        <version>${pmd.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.sourceforge.pmd</groupId>
-                        <artifactId>pmd-javascript</artifactId>
-                        <version>${pmd.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.sourceforge.pmd</groupId>
-                        <artifactId>pmd-jsp</artifactId>
-                        <version>${pmd.version}</version>
-                    </dependency>
-                </dependencies>
                 <executions>
                     <execution>
                         <id>pmd</id>
