@@ -31,12 +31,6 @@
 
 ***
 
-### Boy Scout Rule
-
-* Leave the campground cleaner than you found it
-
-***
-
 ## Meaningful Names
 
 ### Use Intention-Revealing Names
@@ -179,20 +173,6 @@ They should do it only.
 
 ***
 
-### Use Descriptive Names
-
-***
-
-### Function Arguments
-
-* The ideal number of arguments for a function is zero (niladic)
-* Next comes one (monadic)
-* Followed by two (dyadic)
-* Three arguments (triadic)
-* More than three (polyadic) requires very special justification
-
-***
-
 ### Flag Arguments
 
 * Passing a boolean into a function is a truly terrible practice
@@ -204,7 +184,13 @@ render(boolean isSuite)
 
 ***
 
-### Don't Repeat Yourself
+### Function Arguments
+
+* The ideal number of arguments for a function is zero (niladic)
+* Next comes one (monadic)
+* Followed by two (dyadic)
+* Three arguments (triadic)
+* More than three (polyadic) requires very special justification
 
 ***
 
@@ -354,6 +340,8 @@ Examples:
 ***
 
 ## CPD
+
+* DRY - Don't Repeat Yourself
 
 pom.xml
 ```xml
