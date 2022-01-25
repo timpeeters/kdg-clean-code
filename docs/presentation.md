@@ -239,6 +239,8 @@ jobs:
         run: mvn -B verify
 ```
 
+* Enable branch protection
+
 ***
 
 ## Compiler warnings
