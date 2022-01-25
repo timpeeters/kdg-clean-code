@@ -212,6 +212,35 @@ render(boolean isSuite)
 
 ***
 
+## Continuous Integration
+
+### GitHub Actions
+
+.github/workflows/ci.yml
+```yaml
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B verify
+```
+
+***
+
 ## Compiler warnings
 
 pom.xml
