@@ -415,3 +415,35 @@ Upload via GitHub Actions:
 * Tools to keep dependencies up-to-date
   * Dependabot (GitHub)
   * Renovatebot
+
+## OSS Index Maven Plugin
+
+pom.xml
+```xml
+<plugin>
+    <groupId>org.sonatype.ossindex.maven</groupId>
+    <artifactId>ossindex-maven-plugin</artifactId>
+    <version>3.1.0</version>
+</plugin>
+```
+
+Command:
+```shell
+mvn ossindex:audit
+```
+
+## Dependabot
+
+.github/dependabot.yml
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+```
