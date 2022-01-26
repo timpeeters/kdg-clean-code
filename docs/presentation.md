@@ -19,12 +19,6 @@
 
 ***
 
-### Measurement of code quality
-
-![Measurement of code quality](img/wtf.jpeg)
-
-***
-
 ### Cost of Change
 
 ![Cost per change](img/cost-per-change.jpeg)
@@ -32,20 +26,6 @@
 ***
 
 ## Meaningful Names
-
-### Use Intention-Revealing Names
-
-Bad:
-```java
-int d; // elapsed time in days 
-```
-
-Good:
-```java
-int elapsedTimeInDays;
-```
-
-***
 
 ### Use Intention-Revealing Names
 
@@ -108,28 +88,6 @@ public static void copyChars(char[] source, char[] destination) {
     for (int i = 0; i < source.length; i++) {
         destination[i] = source[i];
     }
-}
-```
-
-***
-
-### Use Pronouncable Names
-
-Bad:
-```java
-class DtaRcrd102 {
-    private Date genymdhms;
-    private Date modymdhms;
-    private final String pszqint = "102";
-}
-```
-
-Good:
-```java
-class Customer {
-    private Date generationTimestamp;
-    private Date modificationTimestamp;
-    private final String recordId = "102";
 }
 ```
 
