@@ -13,6 +13,6 @@ class Deprecated {
      * date (the day of the month between 1-31).
      */
     void newDate() {
-        new Date(122, 0, 26);
+        //new Date(122, 0, 26);
     }
 }

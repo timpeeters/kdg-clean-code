@@ -8,9 +8,9 @@
     <module name="TreeWalker">
         <!--module name="MethodLength">
             <property name="max" value="10"/>
-        </module-->
+        </module>
 
-        <!--module name="ParameterNumber">
+        <module name="ParameterNumber">
             <property name="ignoreOverriddenMethods" value="true"/>
             <property name="max" value="3"/>
         </module-->

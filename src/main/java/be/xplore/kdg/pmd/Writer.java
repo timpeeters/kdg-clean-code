@@ -10,10 +10,8 @@ import java.nio.file.Path;
 public class Writer {
 
     public void writeFile(Path path, String content) {
-        try {
-            BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
+        try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
             writer.write(content);
-            writer.close();
         } catch (IOException e) {
             throw new UncheckedIOException(String.format("Unable to write file %s", content), e);
         }

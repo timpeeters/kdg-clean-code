@@ -13,8 +13,8 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    List<String> getEmployeeNames() {
-        var names = new ArrayList<String>();
+    public List<String> getEmployeeNames() {
+        List<String> names = new ArrayList<>();
 
         for (Employee employee : employeeRepository.getEmployees()) {
             names.add(employee.getName());
