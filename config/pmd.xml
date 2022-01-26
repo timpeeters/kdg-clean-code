@@ -8,7 +8,7 @@
 
     <description/>
 
-    <!--rule ref="category/java/errorprone.xml/CloseResource"/>
+    <rule ref="category/java/errorprone.xml/CloseResource"/>
 
 
 
@@ -21,7 +21,8 @@
 
 
 
-    <rule ref="category/java/errorprone.xml/ReturnEmptyCollectionRatherThanNull"/>
+    <!--rule ref="category/java/errorprone.xml/ReturnEmptyCollectionRatherThanNull"/>
+
 
 
 

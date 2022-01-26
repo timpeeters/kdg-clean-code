@@ -17,7 +17,7 @@ class FunctionArguments {
         // Three arguments (triadic) should be avoided where possible.
 
         // More than three (polyadic) requires very special justification
-        void changeDeliveryAddress(String street, String number, String postalCode, String city) {
+        void changeDeliveryAddress(Address address) {
         }
     }
 }

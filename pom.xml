@@ -132,7 +132,66 @@
         </pluginManagement>
 
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgument>-Xlint:all,-processing</compilerArgument>
+                    <failOnWarning>true</failOnWarning>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
 
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <configLocation>config/checkstyle.xml</configLocation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <failOnViolation>true</failOnViolation>
+                    <linkXRef>false</linkXRef>
+                    <printFailingErrors>true</printFailingErrors>
+                    <rulesets>config/pmd.xml</rulesets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pmd</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

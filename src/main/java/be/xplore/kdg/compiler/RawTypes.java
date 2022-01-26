@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RawTypes {
 
-    List orders = new ArrayList();
+    List<Order> orders = new ArrayList<>();
 
     static class Order {
     }
